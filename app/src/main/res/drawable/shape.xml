@@ -1,0 +1,13 @@
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="375dp"
+    android:height="375dp"
+    android:viewportWidth="360"
+    android:viewportHeight="360">
+
+    <!-- Example of a bottom center curve -->
+    <path
+        android:fillColor="#BFDBFE"
+        android:fillType="evenOdd"
+        android:pathData="M0,0 H360 V320 Q180,360 0,320 Z"/>
+</vector>
