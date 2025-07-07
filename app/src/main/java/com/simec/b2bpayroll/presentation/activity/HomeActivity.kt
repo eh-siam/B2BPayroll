@@ -1,4 +1,4 @@
-package com.simec.b2bpayroll
+package com.simec.b2bpayroll.presentation.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -178,18 +178,7 @@ fun PreviewHomeScreenWithoutVM()  {
                             ),
                             modifier = Modifier.padding(top = 10.dp)
                         )
-                        Text(
-                            text = "Empowering people,\nbuilding success",
-                            style = TextStyle(
-                                fontSize = 13.sp,
-                                fontWeight = FontWeight.Normal,
-                                color = Color.DarkGray
-                            ),
-                            modifier = Modifier.padding(top = 10.dp)
-                        )
                     }
-
-
                 }
             }
 
@@ -241,6 +230,16 @@ fun PreviewHomeScreenWithoutVM()  {
 
                 }
             }
+
+
+        }
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
 
 
         }

@@ -18,13 +18,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.simec.b2bpayroll.ui.theme.BlueCustom
+import com.simec.b2bpayroll.core.designsystem.*
 
 
 @Preview(showBackground = true)
@@ -80,7 +81,7 @@ import com.simec.b2bpayroll.ui.theme.BlueCustom
                     .height(50.dp),
                     shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = BlueCustom)
+                        containerColor = Color.Blue)
             ) {
                 Text("Edit Profile")
             }

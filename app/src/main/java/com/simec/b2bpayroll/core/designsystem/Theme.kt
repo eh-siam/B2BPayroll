@@ -1,4 +1,4 @@
-package com.simec.b2bpayroll.presentation.theme
+package com.simec.b2bpayroll.core.designsystem
 
 /**
   * Created by Emdadul Haque Siam on 26,June,2025
@@ -21,7 +21,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun B2bpayrollTheme(
+fun B2bPayrollTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

@@ -1,21 +1,15 @@
-package com.simec.b2bpayroll
-
-import com.simec.b2bpayroll.MainActivity
+package com.simec.b2bpayroll.presentation.activity
 
 /**
  * Created by Emdadul Haque Siam on 29,June,2025
  * Copyright (c): SIMEC System Ltd.
  */
-
-
-
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.simec.b2bpayroll.LoginActivity
 import com.simec.b2bpayroll.presentation.screen.splash.ShowSplashScreen
 
 
