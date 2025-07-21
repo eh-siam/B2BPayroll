@@ -1,8 +1,9 @@
 package com.simec.b2bpayroll.presentation.screen.home
 
-
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,19 +35,18 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.simec.b2bpayroll.R
-
 
 /**
  * Created by Emdadul Haque Siam on 26,June,2025
  * Copyright (c): SIMEC System Ltd.
  */
-@Preview(showBackground = true)
+
 @Composable
-fun PreviewHomeScreenWithoutVM()  {
+fun HomeScreen(navController: NavHostController) {
     val context = LocalContext.current
     Column(
         modifier = Modifier
@@ -96,10 +96,7 @@ fun PreviewHomeScreenWithoutVM()  {
                     .padding(top = 12.dp)
                     .size(30.dp)
             )
-
-
         }
-
         Spacer(modifier = Modifier.padding(7.dp))
 
         var search by remember { mutableStateOf("") }
@@ -128,8 +125,6 @@ fun PreviewHomeScreenWithoutVM()  {
             singleLine = true,
 
         )
-
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -143,7 +138,11 @@ fun PreviewHomeScreenWithoutVM()  {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 16.dp),
+                        .padding(top = 16.dp)
+                        .clickable {
+                            Log.d("CardClick", "HR Card Clicked")
+                            navController.navigate("hr_configuration")
+                        },
                     colors = CardDefaults.cardColors(containerColor = Color.White),
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 3.dp
@@ -181,8 +180,6 @@ fun PreviewHomeScreenWithoutVM()  {
                     }
                 }
             }
-
-
             Box(
                 modifier = Modifier
                     .weight(1f)
@@ -219,35 +216,18 @@ fun PreviewHomeScreenWithoutVM()  {
                         )
 
                         Text(
-                            text = "Smart payroll for smart businesses.",
-                            fontSize = 13.sp,
-                            modifier = Modifier.padding(top = 10.dp),
-                            fontWeight = FontWeight.Normal,
-                            color = Color.Black
+                            text = "Empowering people,\nbuilding success",
+                            style = TextStyle(
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.Normal,
+                                color = Color.DarkGray
+                            ),
+                            modifier = Modifier.padding(top = 10.dp)
                         )
-
                     }
-
                 }
             }
-
-
         }
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp, top = 16.dp, end = 16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-
-
-        }
-
-
 
     }
-    
-
 }
-

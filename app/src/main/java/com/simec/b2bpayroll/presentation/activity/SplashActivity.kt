@@ -10,7 +10,8 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.simec.b2bpayroll.presentation.screen.splash.ShowSplashScreen
+import androidx.navigation.compose.rememberNavController
+import com.simec.b2bpayroll.presentation.screen.splash.SplashScreen
 
 
 class SplashActivity : ComponentActivity() {
@@ -20,7 +21,9 @@ class SplashActivity : ComponentActivity() {
 
         // Set Compose UI
         setContent {
-            ShowSplashScreen()
+            val navController = rememberNavController()
+
+            SplashScreen(navController = navController)
         }
 
         // Delay 2.5 seconds (2500 milliseconds)

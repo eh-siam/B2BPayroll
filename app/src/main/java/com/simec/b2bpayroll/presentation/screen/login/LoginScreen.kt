@@ -38,7 +38,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.simec.b2bpayroll.R
-import com.simec.b2bpayroll.presentation.activity.HomeActivity
+import com.simec.b2bpayroll.presentation.activity.MainActivity
+import com.simec.b2bpayroll.presentation.screen.home.HomeScreen
 
 
 /**
@@ -69,7 +70,7 @@ fun LoginScreen() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.letter_s),
+                    painter = painterResource(id = R.drawable.letter),
                     contentDescription = stringResource(R.string.app_name),
                     modifier = Modifier
                         .size(100.dp)
@@ -136,8 +137,7 @@ fun LoginScreen() {
 
             Button(
                 onClick = {
-                    // Move to HomeActivity
-                    context.startActivity(Intent(context, HomeActivity::class.java))
+                    context.startActivity(Intent(context, MainActivity::class.java))
                 },
                 modifier = Modifier
                     .height(50.dp)
