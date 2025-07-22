@@ -2,8 +2,10 @@ package com.simec.b2bpayroll.presentation.screen.home
 
 import android.util.Log
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,8 +15,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
@@ -31,10 +36,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.key.Key.Companion.Home
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -48,15 +57,19 @@ import com.simec.b2bpayroll.R
 @Composable
 fun HomeScreen(navController: NavHostController) {
     val context = LocalContext.current
+    val scrollState = rememberScrollState()
     Column(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .padding(vertical = 16.dp)
+            .verticalScroll(scrollState),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
 
         Row(
             modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 16.dp),
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 20.dp),
             verticalAlignment = Alignment.Top
         ) {
             // 📷 Profile Image
@@ -93,7 +106,7 @@ fun HomeScreen(navController: NavHostController) {
                 painter = painterResource(id = R.drawable.notification_bell),
                 contentDescription = "Notification Bell Icon",
                 modifier = Modifier
-                    .padding(top = 12.dp)
+                    .padding(top = 14.dp)
                     .size(30.dp)
             )
         }
@@ -154,10 +167,11 @@ fun HomeScreen(navController: NavHostController) {
                             .padding(16.dp),
                     ){
                         Image(
+
                             painter = painterResource(id = R.drawable.recruitment),
                             contentDescription = "Profile Picture",
                             modifier = Modifier
-                                .size(60.dp)
+                                .size(40.dp),
 
                         )
 
@@ -165,6 +179,7 @@ fun HomeScreen(navController: NavHostController) {
                             text = "HR\nManagement",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
+                            fontFamily = FontFamily.SansSerif,
                             color = Color.Black,
                             modifier = Modifier.padding(top = 12.dp)
                         )
@@ -188,7 +203,10 @@ fun HomeScreen(navController: NavHostController) {
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 16.dp),
+                        .padding(top = 16.dp)
+                        .clickable {
+                            navController.navigate("payroll")
+                        },
                     colors = CardDefaults.cardColors(containerColor = Color.White),
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 3.dp
@@ -204,17 +222,16 @@ fun HomeScreen(navController: NavHostController) {
                             painter = painterResource(id = R.drawable.retention),
                             contentDescription = "Profile Picture",
                             modifier = Modifier
-                                .size(60.dp)
+                                .size(40.dp)
                         )
-
                         Text(
                             text = "Payroll\nManagement",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
+                            fontFamily = FontFamily.SansSerif,
                             color = Color.Black,
                             modifier = Modifier.padding(top = 12.dp)
                         )
-
                         Text(
                             text = "Empowering people,\nbuilding success",
                             style = TextStyle(
@@ -229,5 +246,216 @@ fun HomeScreen(navController: NavHostController) {
             }
         }
 
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp),
+            horizontalAlignment = Alignment.Start
+
+        ){
+
+            Text(
+                text = "Today Attendance",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black,
+                modifier = Modifier.padding(top = 10.dp,start = 5.dp)
+
+            )
+
+            Spacer(modifier = Modifier.weight(0.5f))
+
+                Column(
+                    modifier = Modifier
+                        .padding(top = 10.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+
+                        Card(
+                            modifier = Modifier
+                                .width(115.dp)
+                                .padding(top = 10.dp)
+                                .clickable {
+                                    navController.navigate("attendance")
+                                },
+                            colors = CardDefaults.cardColors(containerColor = Color.White),
+                            elevation = CardDefaults.cardElevation(
+                                defaultElevation = 3.dp
+                            )
+                        ) {
+
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(10.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                painterResource(
+                                    id = R.drawable.recruitment
+                                )
+                                Image(
+                                    painter = painterResource(id = R.drawable.recruitment),
+                                    contentDescription = "Profile Picture",
+                                    modifier = Modifier
+                                        .size(60.dp)
+                                        .clip(CircleShape)
+                                        .background(color = colorResource(id = R.color.Blue_40))
+                                        .padding(10.dp)
+                                )
+
+                                Text(
+                                    text = "Presents",
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Black,
+                                    modifier = Modifier.padding(top = 12.dp)
+                                )
+                                Text(
+                                    text = "188",
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = colorResource(id = R.color.purple_700),
+                                    modifier = Modifier.padding(top = 5.dp)
+                                )
+                            }
+                        }
+
+                        Card(
+                            modifier = Modifier
+                                .width(125.dp)
+                                .padding(top = 10.dp, start = 10.dp)
+                                .clickable {
+                                    navController.navigate("attendance")
+                                },
+                            colors = CardDefaults.cardColors(containerColor = Color.White),
+                            elevation = CardDefaults.cardElevation(
+                                defaultElevation = 3.dp
+                            )
+                        ) {
+
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(10.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                painterResource(
+                                    id = R.drawable.late
+                                )
+                                Image(
+                                    painter = painterResource(id = R.drawable.late),
+                                    contentDescription = "Profile Picture",
+                                    modifier = Modifier
+                                        .size(60.dp)
+                                        .clip(CircleShape)
+                                        .background(color = colorResource(id= R.color.Blue_400))
+                                        .padding(10.dp)
+                                )
+
+                                Text(
+                                    text = "Late",
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Black,
+                                    modifier = Modifier.padding(top = 12.dp)
+                                )
+                                Text(
+                                    text = "18",
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = colorResource(id = R.color.Orange_70),
+                                    modifier = Modifier.padding(top = 5.dp)
+                                )
+
+                            }
+
+                        }
+
+
+                        Card(
+                            modifier = Modifier
+                                .width(120.dp)
+                                .padding(top = 10.dp, start = 10.dp)
+                                .clickable {
+                                    navController.navigate("attendance")
+                                },
+                            colors = CardDefaults.cardColors(containerColor = Color.White),
+                            elevation = CardDefaults.cardElevation(
+                                defaultElevation = 3.dp
+                            )
+                        ) {
+
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(10.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                painterResource(
+                                    id = R.drawable.absent
+                                )
+                                Image(
+                                    painter = painterResource(id = R.drawable.absent),
+                                    contentDescription = "Profile Picture",
+                                    modifier = Modifier
+                                        .size(60.dp)
+                                        .clip(CircleShape)
+                                        .background(color = colorResource(id= R.color.purple_50))
+                                        .padding(10.dp)
+                                )
+
+                                Text(
+                                    text = "Absent",
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Black,
+                                    modifier = Modifier.padding(top = 12.dp)
+                                )
+                                Text(
+                                    text = "12",
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Red,
+                                    modifier = Modifier.padding(top = 5.dp)
+                                )
+                            }
+                        }
+                    }
+
+            }
+
+        }
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp),
+            horizontalAlignment = Alignment.Start
+        ){
+            Text(
+                text = "Total Company",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black,
+                modifier = Modifier.padding(top = 10.dp,start = 5.dp)
+            )
+        }
+        
     }
+
 }
+
+
+@Composable
+@Preview(showBackground = true)
+fun HomeScreenPreview() {
+    HomeScreen(navController = NavHostController(LocalContext.current))
+}
+

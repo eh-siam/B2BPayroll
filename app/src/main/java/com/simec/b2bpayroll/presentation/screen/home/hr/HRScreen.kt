@@ -22,8 +22,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -38,7 +40,8 @@ import com.simec.b2bpayroll.presentation.component.ui.CommonTopBar
 
 @Composable
 fun HRScreen(
-    navController: NavHostController, onBackClick: () -> Unit = {}){
+    navController: NavHostController, onBackClick: () -> Unit = {}
+){
 
     Scaffold(
         topBar = {
@@ -64,7 +67,7 @@ fun HRScreen(
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
-                        navController.navigate("configuration") // ✅ This will work
+                        navController.navigate("configuration")
                     }
                 ) {
                     Row(
@@ -125,7 +128,7 @@ fun HRScreen(
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
-                        navController.navigate("Application_configuration") // ✅ This will work
+                        navController.navigate("Application_configuration")
                     }
                 ) {
                     Row(
@@ -187,7 +190,7 @@ fun HRScreen(
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
-                        navController.navigate("Employee") // ✅ This will work
+                        navController.navigate("Employee")
                     }
                 ) {
                     Row(
@@ -250,7 +253,7 @@ fun HRScreen(
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
-                        navController.navigate("attendance") // ✅ This will work
+                        navController.navigate("attendance")
                     }
                 ) {
                     Row(
@@ -311,7 +314,7 @@ fun HRScreen(
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
-                        navController.navigate("reports") // ✅ This will work
+                        navController.navigate("reports")
                     }
                 ) {
                     Row(
@@ -373,7 +376,7 @@ fun HRScreen(
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
-                        navController.navigate("leave") // ✅ This will work
+                        navController.navigate("leave")
                     }
                 ) {
                     Row(
@@ -425,6 +428,7 @@ fun HRScreen(
 
                             )
                     }
+
                 }
 
 
@@ -432,3 +436,11 @@ fun HRScreen(
         }
     }
 }
+
+@Composable
+@Preview(showBackground = true)
+fun HRScreenPreview(){
+    HRScreen(navController = NavHostController(LocalContext.current))
+}
+
+

@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.simec.b2bpayroll.presentation.screen.home.HomeScreen
 import com.simec.b2bpayroll.presentation.screen.home.hr.HRScreen
+import com.simec.b2bpayroll.presentation.screen.home.payroll.PayrollScreen
 import com.simec.b2bpayroll.presentation.screen.splash.SplashScreen
 
 
@@ -33,6 +34,13 @@ fun AppNavigation(navController: NavHostController) {
             onBackClick = {navController.popBackStack()}
             )
         }
+
+        composable("payroll") {
+            PayrollScreen(navController = navController,
+                onBackClick = {navController.popBackStack()}
+            )
+        }
+
         composable("configuration") {
             HRScreen(navController)
         }

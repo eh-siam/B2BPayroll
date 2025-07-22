@@ -1,4 +1,4 @@
-package com.simec.b2bpayroll.presentation.screen.login
+package com.simec.b2bpayroll.presentation.screen.auth.login
 
 import android.content.Intent
 import androidx.compose.foundation.Image
