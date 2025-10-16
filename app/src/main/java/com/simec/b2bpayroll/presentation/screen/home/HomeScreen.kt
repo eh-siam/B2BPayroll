@@ -85,6 +85,7 @@ fun HomeScreen(navController: NavHostController) {
             // 📝 Texts
             Column(
                 modifier = Modifier
+                    .fillMaxWidth()
                     .padding(start = 16.dp, top = 12.dp)
                     .weight(1f) // Fill remaining horizontal space
             ) {
@@ -110,7 +111,7 @@ fun HomeScreen(navController: NavHostController) {
                     .size(30.dp)
             )
         }
-        Spacer(modifier = Modifier.padding(7.dp))
+        Spacer(modifier = Modifier.padding(5.dp))
 
         var search by remember { mutableStateOf("") }
 
@@ -188,6 +189,7 @@ fun HomeScreen(navController: NavHostController) {
                             style = TextStyle(
                                 fontSize = 13.sp,
                                 fontWeight = FontWeight.Normal,
+                                fontFamily = FontFamily.SansSerif,
                                 color = Color.DarkGray
                             ),
                             modifier = Modifier.padding(top = 10.dp)
@@ -254,14 +256,29 @@ fun HomeScreen(navController: NavHostController) {
 
         ){
 
-            Text(
-                text = "Today Attendance",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black,
-                modifier = Modifier.padding(top = 10.dp,start = 5.dp)
 
-            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                Text(
+                    text = "Today's Attendance",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black,
+                    modifier = Modifier.padding(top = 10.dp)
+
+                )
+                Text(
+                    text ="(240 Total)",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Normal,
+                    color = Color.Black,
+                    modifier = Modifier.padding(top = 10.dp,start = 5.dp)
+
+                )
+            }
 
             Spacer(modifier = Modifier.weight(0.5f))
 
@@ -447,9 +464,7 @@ fun HomeScreen(navController: NavHostController) {
                 modifier = Modifier.padding(top = 10.dp,start = 5.dp)
             )
         }
-        
     }
-
 }
 
 

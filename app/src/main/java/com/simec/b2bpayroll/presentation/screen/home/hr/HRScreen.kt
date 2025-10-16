@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -23,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -58,12 +60,17 @@ fun HRScreen(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
+                    .background(color = colorResource(id = R.color.white))
+
             ) {
+
+                val blue_40 =  colorResource(id = R.color.white)
 
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 40.dp, start = 16.dp, end = 16.dp, bottom = 10.dp),
+                    colors = CardDefaults.cardColors(containerColor = blue_40),
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
@@ -125,6 +132,7 @@ fun HRScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 10.dp, horizontal = 16.dp),
+                    colors = CardDefaults.cardColors(containerColor = blue_40),
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
@@ -187,6 +195,7 @@ fun HRScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 10.dp, horizontal = 16.dp),
+                    colors = CardDefaults.cardColors(containerColor = blue_40),
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
@@ -250,6 +259,7 @@ fun HRScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 10.dp, horizontal = 16.dp),
+                    colors = CardDefaults.cardColors(containerColor = blue_40),
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
@@ -311,6 +321,7 @@ fun HRScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 10.dp, horizontal = 16.dp),
+                    colors = CardDefaults.cardColors(containerColor = blue_40),
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {
@@ -373,6 +384,7 @@ fun HRScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 10.dp, horizontal = 16.dp),
+                    colors = CardDefaults.cardColors(containerColor = blue_40),
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
                     onClick = {

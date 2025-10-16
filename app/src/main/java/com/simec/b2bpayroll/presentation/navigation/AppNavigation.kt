@@ -34,13 +34,11 @@ fun AppNavigation(navController: NavHostController) {
             onBackClick = {navController.popBackStack()}
             )
         }
-
         composable("payroll") {
             PayrollScreen(navController = navController,
                 onBackClick = {navController.popBackStack()}
             )
         }
-
         composable("configuration") {
             HRScreen(navController)
         }

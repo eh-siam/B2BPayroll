@@ -1,6 +1,6 @@
 package com.simec.b2bpayroll.presentation.component.ui
 
-import androidx.compose.foundation.background
+
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -18,10 +18,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
-
 /**
  * Created by Emdadul Haque Siam on 20,July,2025
  * Copyright (c): SIMEC System Ltd.
@@ -33,16 +33,15 @@ fun CommonTopBar(
     onBackClick: () -> Unit
 ) {
     Surface(
-
         modifier = Modifier.fillMaxWidth(),
         color = Color.White,
         tonalElevation = 4.dp
-
 
     ){
         TopAppBar(
             title = {
                 Text(text = title,
+                    fontWeight = FontWeight.Bold
                 )
             },
             navigationIcon = {
@@ -73,11 +72,7 @@ fun CommonTopBar(
 
 }
 
-@Composable
-@Preview(showBackground = true)
-fun CommonTopBarPreview() {
-    CommonTopBar(title = "Title", onBackClick = {})
-}
+
 
 
 
