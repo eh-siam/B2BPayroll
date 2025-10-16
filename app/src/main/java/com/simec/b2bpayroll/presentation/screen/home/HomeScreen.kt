@@ -177,7 +177,7 @@ fun HomeScreen(navController: NavHostController) {
                         )
 
                         Text(
-                            text = "HR\nManagement",
+                            text = "HR\nManagement System",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.SansSerif,
